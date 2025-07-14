@@ -42,8 +42,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {COREJTAGDEBUG_C0_0:TGT_TRSTN
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {neorv32_libero_ip} -instance_name {neorv32_libero_ip_0}
 # Exporting Parameters of instance neorv32_libero_ip_0
 sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip_0} -params {\
-"BOOT_ADDR_CUSTOM_LOWER:53248" \
-"BOOT_ADDR_CUSTOM_UPPER:53248" \
+"BOOT_ADDR_CUSTOM_LOWER:0" \
+"BOOT_ADDR_CUSTOM_UPPER:0" \
 "BOOT_MODE_SELECT:1" \
 "CACHE_BLOCK_SIZE:64" \
 "CLOCK_FREQUENCY:200000000" \
