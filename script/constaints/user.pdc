@@ -1,0 +1,55 @@
+set_io -port_name uart0_txd_o \
+    -pin_name Y21 \
+    -fixed true \
+    -DIRECTION OUTPUT
+    
+set_io -port_name uart0_rxd_i \
+    -pin_name W21 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+set_io -port_name REF_CLK_50MHz \
+    -pin_name R18 \
+    -fixed true \
+    -io_std LVCMOS18 \
+    -DIRECTION INPUT
+    
+set_io -port_name ext_rstn \
+    -pin_name T19 \
+    -fixed true \
+    -DIRECTION INPUT
+    
+    set_io -port_name {pwm_o[6]}          \
+    -pin_name U15 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[5]}          \
+    -pin_name V16 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[4]}          \
+    -pin_name AA18 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[3]}          \
+    -pin_name U21 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[2]}          \
+    -pin_name U20 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[1]}          \
+    -pin_name V17 \
+    -fixed true \
+	-DIRECTION Output
+
+set_io -port_name {pwm_o[0]}          \
+    -pin_name T18 \
+    -fixed true \
+	-DIRECTION Output
