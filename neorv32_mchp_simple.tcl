@@ -75,6 +75,8 @@ cd $local_dir
 cd "./script"
 source "./base_recursive.tcl"
 cd $local_dir
+sd_reset_layout -sd_name {base}
+generate_component -component_name {base}
 save_project 
 set_root -module {base::work} 
 save_project 
