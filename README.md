@@ -88,14 +88,17 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 **_NOTE:_** it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run.
 
 ![A button](./images/auto_arrange_layout.png)
+
 6. Run the design flow to the "Generate FPGA Array Data", it is also recommended to run the "Verify Timing" stage of the design flow.
 7. Separately build your application image and export a `.hex` file. This is demonstrated in the [Building an Application in SoftConsole](#building-an-application-in-softconsole) section.
 8. Run the "Configure Design Initialization Data and Memories" tool in the Libero design flow.
 
 ![A tool](./images/cdidm.png)
+
 9. In the "Fabric RAMs" tab select the "Filter out Inferred RAMs" option.
 
 ![A configurator](./images/ram_init_1.png)
+
 10. Double click on the "PF_SRAM_AHBL_AXI_C0_0".
 11. In the configurator use the "Content from file" option to point to your `.hex` file.
 12. Select "Run PROGRAM Action" from the design flow.
@@ -107,10 +110,12 @@ This repository includes a SoftConsole workspace with a pre-configured sample ap
 1. Open SoftConsole and in the launcher point to the "sc-ws" directory in this repository.
 
 ![A launcher](./images/sc_launch.png)
+
 2. The application `main` is in the `neorv32/src/application/main.c` directory.
 3. This build is configured for RV32I as a build, this can be changed from the project properties, right click on the project folder and select "Properties".
 
 ![Project properties](./images/sc-properties.png)
+
 4. The project can be built using `CTRL + B`.
 5. Once built the `RV32I/neorv32-softconsole.hex` file can be used with Libero.
 
@@ -122,22 +127,27 @@ To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled 
 2. Open the SoftConsole debug configurations.
 
 ![Debug option](./images/sc-debug.png)
+
 3. Double click on "GDB OpenOCD Debugging" to create a new debug configuration.
 
 ![Debug config](./images/sc-debug-config-1.png)
+
 4. In the "Debugger" tab update the "Executable path" to point to the OpenOCD that was downloaded previously and update the "Config options" to
 
     --file ${workspace_loc}/microchip_riscv.cfg
 
 ![Debug config](./images/sc-debug-config-2.png)
+
 5. On Windows:
-    - launch "USB Driver Tool".
-    - Locate "USB FP5 Serial Converter A", right click and select "Install WinUSB".
+  - launch "USB Driver Tool".
+  - Locate "USB FP5 Serial Converter A", right click and select "Install WinUSB".
 
 ![USB Driver Tool](./images/usbdt.png)
-    - **_NOTE:_** this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored.
+
+  - **_NOTE:_** this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored.
 
 ![USB Driver Tool](./images/usbdt-restore.png)
+
 6. In SoftConsole click apply the settings and select "Debug".
 
 ![SoftConsole Debug](./images/sc-debug.gif)
