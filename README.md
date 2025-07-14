@@ -78,10 +78,13 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 ![A gif](./images/gen_proj.gif)
 
 Note: default I/O constraints for UART0 and PWM[6:0] are automatically imported
+
 Note: default clock constraints for JTAG / system clocks are imported or derived
 4. At this stage NeoRV32 can be configured as required by double clicking on the `neorv32_libero_ip_0` component
+
 Note: Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file
 5. If you are going to debug the CPU to download an application you can just generate a bitstream and program your Discovery Kit, if you would like to include an application in the bitstream continue with the steps below.
+
 Note: it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run
 
 ![A button](./images/auto_arrange_layout.png)
