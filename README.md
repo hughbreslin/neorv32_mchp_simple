@@ -55,7 +55,7 @@ To generate embedded software using the included workspace SoftConsole and OpenO
 
 - SoftConsole is available [here](https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/soc-fpga/softconsole).
 
-Note: SoftConsole does include OpenOCD but this version does not support the NeoRV32 debugger, a newer OpenOCD release will be required to use NeoRV32.
+**_NOTE:_** SoftConsole does include OpenOCD but this version does not support the NeoRV32 debugger, a newer OpenOCD release will be required to use NeoRV32.
 
 - OpenOCD with NeoRV32 support is available [here](https://github.com/microchip-fpga/openocd/releases/tag/v0.12.0-mchp.0.0.1).
   - On Windows [USB Driver Tool](https://visualgdb.com/UsbDriverTool/) will also be required.
@@ -77,15 +77,15 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 
 ![A gif](./images/gen_proj.gif)
 
-Note: default I/O constraints for UART0 and PWM[6:0] are automatically imported.
+**_NOTE:_** default I/O constraints for UART0 and PWM[6:0] are automatically imported.
 
-Note: default clock constraints for JTAG / system clocks are imported or derived.
+**_NOTE:_** default clock constraints for JTAG / system clocks are imported or derived.
 4. At this stage NeoRV32 can be configured as required by double clicking on the `neorv32_libero_ip_0` component.
 
-Note: Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file.
+**_NOTE:_** Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file.
 5. If you are going to debug the CPU to download an application you can just generate a bitstream and program your Discovery Kit, if you would like to include an application in the bitstream continue with the steps below.
 
-Note: it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run.
+**_NOTE:_** it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run.
 
 ![A button](./images/auto_arrange_layout.png)
 6. Run the design flow to the "Generate FPGA Array Data", it is also recommended to run the "Verify Timing" stage of the design flow.
@@ -135,7 +135,7 @@ To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled 
     - Locate "USB FP5 Serial Converter A", right click and select "Install WinUSB".
 
 ![USB Driver Tool](./images/usbdt.png)
-    - Note: this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored.
+    - **_NOTE:_** this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored.
 
 ![USB Driver Tool](./images/usbdt-restore.png)
 6. In SoftConsole click apply the settings and select "Debug".
