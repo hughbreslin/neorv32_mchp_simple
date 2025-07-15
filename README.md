@@ -48,7 +48,7 @@ This section will outline the tool set up, tool flow and steps to run the hello 
 To generate the FPGA design Libero SoC and a license will be required.
 
 - Libero SoC can be downloaded [here](https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/fpga/libero-software-later-versions), these scripts have been tested with 2025.1.
-- A Libero SoC free silver license can be obtained here[https://www.microchipdirect.com/fpga-software-products].
+- A Libero SoC free silver license can be obtained [here](https://www.microchipdirect.com/fpga-software-products).
   - For more information see the [Libero SoC License Installation Guide](https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/swdocs/libero/Libero_Installation_Licensing_Setup_User_Guide_2025_1.pdf).
 
 To generate embedded software using the included workspace SoftConsole and OpenOCD will be required.
@@ -73,6 +73,7 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
     ```
 
 2. Launch Libero SoC.
+
 3. Open the run script dialog (CTRL + U) and run the `neorv32_mchp_simple.tcl` script from this directory.
 
 ![A gif](./images/gen_proj.gif)
@@ -80,9 +81,11 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 **_NOTE:_** default I/O constraints for UART0 and PWM[6:0] are automatically imported.
 
 **_NOTE:_** default clock constraints for JTAG / system clocks are imported or derived.
+
 4. At this stage NeoRV32 can be configured as required by double clicking on the `neorv32_libero_ip_0` component.
 
 **_NOTE:_** Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file.
+
 5. If you are going to debug the CPU to download an application you can just generate a bitstream and program your Discovery Kit, if you would like to include an application in the bitstream continue with the steps below.
 
 **_NOTE:_** it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run.
@@ -90,7 +93,9 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 ![A button](./images/auto_arrange_layout.png)
 
 6. Run the design flow to the "Generate FPGA Array Data", it is also recommended to run the "Verify Timing" stage of the design flow.
+
 7. Separately build your application image and export a `.hex` file. This is demonstrated in the [Building an Application in SoftConsole](#building-an-application-in-softconsole) section.
+
 8. Run the "Configure Design Initialization Data and Memories" tool in the Libero design flow.
 
 ![A tool](./images/cdidm.png)
@@ -100,7 +105,9 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 ![A configurator](./images/ram_init_1.png)
 
 10. Double click on the "PF_SRAM_AHBL_AXI_C0_0".
+
 11. In the configurator use the "Content from file" option to point to your `.hex` file.
+
 12. Select "Run PROGRAM Action" from the design flow.
 
 ### Building an Application in SoftConsole
@@ -112,18 +119,21 @@ This repository includes a SoftConsole workspace with a pre-configured sample ap
 ![A launcher](./images/sc_launch.png)
 
 2. The application `main` is in the `neorv32/src/application/main.c` directory.
+
 3. This build is configured for RV32I as a build, this can be changed from the project properties, right click on the project folder and select "Properties".
 
 ![Project properties](./images/sc-properties.png)
 
 4. The project can be built using `CTRL + B`.
+
 5. Once built the `RV32I/neorv32-softconsole.hex` file can be used with Libero.
 
 #### Debugging an Application
 
 To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled with SoftConsole needs to be used and can be downloaded [here](https://github.com/microchip-fpga/openocd/releases/tag/v0.12.0-mchp.0.0.1) - this is the same link that was provided previously.
 
-1. Download and extract the OpenOCD v0.12.0-4 release for your machine.
+1. Download and extract the OpenOCD v0.12.0-3 release for your machine.
+
 2. Open the SoftConsole debug configurations.
 
 ![Debug option](./images/sc-debug.png)
@@ -144,7 +154,7 @@ To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled 
 
 ![USB Driver Tool](./images/usbdt.png)
 
-  - **_NOTE:_** this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored.
+  - **_NOTE:_** this step should be reverted and the default "USB FP5 Serial Convertor A" driver restored to program the FPGA.
 
 ![USB Driver Tool](./images/usbdt-restore.png)
 
