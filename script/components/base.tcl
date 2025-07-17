@@ -46,23 +46,23 @@ sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip
 "BOOT_ADDR_CUSTOM_UPPER:0" \
 "BOOT_MODE_SELECT:1" \
 "CACHE_BLOCK_SIZE:64" \
-"CLOCK_FREQUENCY:200000000" \
-"CPU_FAST_MUL_EN_INT:0" \
-"CPU_FAST_SHIFT_EN_INT:0" \
+"CLOCK_FREQUENCY:100000000" \
+"CPU_FAST_MUL_EN_INT:1" \
+"CPU_FAST_SHIFT_EN_INT:1" \
 "CPU_RF_HW_RST_EN_INT:0" \
-"DCACHE_EN_INT:0" \
-"DCACHE_NUM_BLOCKS:4" \
-"DMEM_EN_INT:0" \
+"DCACHE_EN_INT:1" \
+"DCACHE_NUM_BLOCKS:256" \
+"DMEM_EN_INT:1" \
 "DMEM_OUTREG_EN_INT:0" \
 "DMEM_SIZE:8192" \
 "DUAL_CORE_EN_INT:0" \
 "HPM_CNT_WIDTH:40" \
-"HPM_NUM_CNTS:0" \
-"ICACHE_EN_INT:0" \
-"ICACHE_NUM_BLOCKS:4" \
-"IMEM_EN_INT:0" \
+"HPM_NUM_CNTS:1" \
+"ICACHE_EN_INT:1" \
+"ICACHE_NUM_BLOCKS:256" \
+"IMEM_EN_INT:1" \
 "IMEM_OUTREG_EN_INT:0" \
-"IMEM_SIZE:16384" \
+"IMEM_SIZE:65536" \
 "IO_CFS_EN_INT:0" \
 "IO_CLINT_EN_INT:0" \
 "IO_DMA_DSC_FIFO:4" \
@@ -107,7 +107,7 @@ sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip
 "PMP_TOR_MODE_EN_INT:0" \
 "RISCV_ISA_C_INT:1" \
 "RISCV_ISA_E_INT:0" \
-"RISCV_ISA_M_INT:0" \
+"RISCV_ISA_M_INT:1" \
 "RISCV_ISA_U_INT:0" \
 "RISCV_ISA_Zaamo_INT:0" \
 "RISCV_ISA_Zalrsc_INT:0" \
@@ -118,9 +118,9 @@ sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip
 "RISCV_ISA_Zbkx_INT:0" \
 "RISCV_ISA_Zbs_INT:0" \
 "RISCV_ISA_Zfinx_INT:0" \
-"RISCV_ISA_Zicntr_INT:0" \
+"RISCV_ISA_Zicntr_INT:1" \
 "RISCV_ISA_Zicond_INT:0" \
-"RISCV_ISA_Zihpm_INT:0" \
+"RISCV_ISA_Zihpm_INT:1" \
 "RISCV_ISA_Zknd_INT:0" \
 "RISCV_ISA_Zkne_INT:0" \
 "RISCV_ISA_Zknh_INT:0" \
@@ -159,8 +159,8 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {PF_SRAM_AHBL_AXI_C
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ACLK" "PF_SRAM_AHBL_AXI_C0_0:ACLK" "clk_gen_0:clk_200MHz" "neorv32_libero_ip_0:clk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ARESETN" "PF_SRAM_AHBL_AXI_C0_0:ARESETN" "clk_gen_0:resetn_clk_200MHz" "neorv32_libero_ip_0:resetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ACLK" "PF_SRAM_AHBL_AXI_C0_0:ACLK" "clk_gen_0:clk_100MHz" "neorv32_libero_ip_0:clk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ARESETN" "PF_SRAM_AHBL_AXI_C0_0:ARESETN" "clk_gen_0:resetn_clk_100MHz" "neorv32_libero_ip_0:resetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TCK" "TCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TDI" "TDI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TDO" "TDO" }
