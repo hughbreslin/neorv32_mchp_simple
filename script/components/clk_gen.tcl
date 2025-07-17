@@ -13,8 +13,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {clk_100MHz} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {clk_150MHz} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {clk_200MHz} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {clk_250MHz} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_100Hz} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_150Hz} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_100MHz} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_150MHz} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_200MHz} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {resetn_clk_250MHz} -port_direction {OUT}
 
@@ -67,8 +67,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:PLL_LOCK_0" "RESET_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:PLL_POWERDOWN_N_0" "RESET_CLK_250MHz:POWERDOWN_B" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_INIT_MONITOR_C0_0:DEVICE_INIT_DONE" "RESET_CLK_150MHz:INIT_DONE" "RESET_CLK_150MHz_0:INIT_DONE" "RESET_CLK_200MHz:INIT_DONE" "RESET_CLK_250MHz:INIT_DONE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_INIT_MONITOR_C0_0:FABRIC_POR_N" "RESET_CLK_150MHz:FPGA_POR_N" "RESET_CLK_150MHz_0:FPGA_POR_N" "RESET_CLK_200MHz:FPGA_POR_N" "RESET_CLK_250MHz:FPGA_POR_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_150MHz:FABRIC_RESET_N" "resetn_clk_150Hz" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_150MHz_0:FABRIC_RESET_N" "resetn_clk_100Hz" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_150MHz:FABRIC_RESET_N" "resetn_clk_150MHz" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_150MHz_0:FABRIC_RESET_N" "resetn_clk_100MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_200MHz:FABRIC_RESET_N" "resetn_clk_200MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_250MHz:FABRIC_RESET_N" "resetn_clk_250MHz" }
 
