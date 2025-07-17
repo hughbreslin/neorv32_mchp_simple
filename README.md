@@ -108,6 +108,8 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 
 11. In the configurator use the "Content from file" option to point to your `.hex` file.
 
+![A configurator](./images/ram_init_2.png)
+
 12. Select "Run PROGRAM Action" from the design flow.
 
 ### Building an Application in SoftConsole
