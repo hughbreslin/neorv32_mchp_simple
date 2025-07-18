@@ -35,12 +35,12 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {PF_INIT_MONITOR_C0
 
 
 
-# Add RESET_CLK_150MHz instance
+# Add RESET_CLK_100MHz instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {RESET_WRAPPER} -instance_name {RESET_CLK_100MHz}
 
 
 
-# Add RESET_CLK_150MHz_0 instance
+# Add RESET_CLK_150MHz instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {RESET_WRAPPER} -instance_name {RESET_CLK_150MHz}
 
 

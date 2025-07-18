@@ -1,6 +1,6 @@
 # Exporting Component Description of PF_CCC_C0 to TCL
 # Family: PolarFireSoC
-# Part Number: MPFS095T-FCSG325E
+# Part Number: MPFS095T-1FCSG325E
 # Create and Configure the core component PF_CCC_C0
 create_and_configure_core -core_vlnv {Actel:SgCore:PF_CCC:2.2.220} -component_name {PF_CCC_C0} -params {\
 "DLL_CLK_0_BANKCLK_EN:false"  \

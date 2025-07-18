@@ -1,6 +1,6 @@
 # Exporting Component Description of COREJTAGDEBUG_C0 to TCL
 # Family: PolarFireSoC
-# Part Number: MPFS095T-FCSG325E
+# Part Number: MPFS095T-1FCSG325E
 # Create and Configure the core component COREJTAGDEBUG_C0
 create_and_configure_core -core_vlnv {Actel:DirectCore:COREJTAGDEBUG:4.0.100} -component_name {COREJTAGDEBUG_C0} -params {\
 "IR_CODE_TGT_0:0x55"  \

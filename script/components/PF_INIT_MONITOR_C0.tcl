@@ -1,6 +1,6 @@
 # Exporting Component Description of PF_INIT_MONITOR_C0 to TCL
 # Family: PolarFireSoC
-# Part Number: MPFS095T-FCSG325E
+# Part Number: MPFS095T-1FCSG325E
 # Create and Configure the core component PF_INIT_MONITOR_C0
 create_and_configure_core -core_vlnv {Actel:SgCore:PF_INIT_MONITOR:2.0.308} -component_name {PF_INIT_MONITOR_C0} -params {\
 "BANK_0_CALIB_STATUS_ENABLED:false"  \

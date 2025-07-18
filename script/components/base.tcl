@@ -22,6 +22,16 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {uart0_txd_o} -port_directi
 sd_create_bus_port -sd_name ${sd_name} -port_name {pwm_o} -port_direction {OUT} -port_range {[6:0]}
 
 
+# Add axi4_2_apb3_1 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {axi4_2_apb3} -instance_name {axi4_2_apb3_1}
+
+
+
+# Add bootrom_0 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {bootrom} -instance_name {bootrom_0}
+
+
+
 # Add clk_gen_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {clk_gen} -instance_name {clk_gen_0}
 
@@ -43,7 +53,7 @@ sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {neorv32_libero_ip} -
 # Exporting Parameters of instance neorv32_libero_ip_0
 sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip_0} -params {\
 "BOOT_ADDR_CUSTOM_LOWER:0" \
-"BOOT_ADDR_CUSTOM_UPPER:0" \
+"BOOT_ADDR_CUSTOM_UPPER:61440" \
 "BOOT_MODE_SELECT:1" \
 "CACHE_BLOCK_SIZE:64" \
 "CLOCK_FREQUENCY:100000000" \
@@ -54,7 +64,7 @@ sd_configure_core_instance -sd_name ${sd_name} -instance_name {neorv32_libero_ip
 "DCACHE_NUM_BLOCKS:256" \
 "DMEM_EN_INT:1" \
 "DMEM_OUTREG_EN_INT:0" \
-"DMEM_SIZE:8192" \
+"DMEM_SIZE:16384" \
 "DUAL_CORE_EN_INT:0" \
 "HPM_CNT_WIDTH:40" \
 "HPM_NUM_CNTS:1" \
@@ -153,14 +163,9 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {neorv32_libero_ip_0:
 
 
 
-# Add PF_SRAM_AHBL_AXI_C0_0 instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {PF_SRAM_AHBL_AXI_C0} -instance_name {PF_SRAM_AHBL_AXI_C0_0}
-
-
-
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ACLK" "PF_SRAM_AHBL_AXI_C0_0:ACLK" "clk_gen_0:clk_100MHz" "neorv32_libero_ip_0:clk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ARESETN" "PF_SRAM_AHBL_AXI_C0_0:ARESETN" "clk_gen_0:resetn_clk_100MHz" "neorv32_libero_ip_0:resetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ACLK" "axi4_2_apb3_1:CLK" "bootrom_0:ACLK" "clk_gen_0:clk_100MHz" "neorv32_libero_ip_0:clk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:ARESETN" "axi4_2_apb3_1:RESETN" "bootrom_0:ARESETN" "clk_gen_0:resetn_clk_100MHz" "neorv32_libero_ip_0:resetn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TCK" "TCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TDI" "TDI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREJTAGDEBUG_C0_0:TDO" "TDO" }
@@ -180,7 +185,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"neorv32_libero_ip_0:pwm_o" "pwm
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:AXI4mmaster0" "neorv32_libero_ip_0:axi4_m" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:AXI4mslave0" "PF_SRAM_AHBL_AXI_C0_0:AXI4_Slave" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:AXI4mslave0" "bootrom_0:AXI4_Slave" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"COREAXI4INTERCONNECT_C0_0:AXI4mslave1" "axi4_2_apb3_1:AXI4_S" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
