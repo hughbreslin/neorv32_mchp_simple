@@ -49,4 +49,3 @@
 
 # Ignore spec.c and spec.C
 /.metadata/.plugins/org.eclipse.cdt.managedbuilder.core/spec.*
-/.metadata/

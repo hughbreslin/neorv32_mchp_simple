@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="com.googlecode.cppcheclipse.feature:1.1.1.v20180105-1603"/>
+		<item value="ilg.gnumcueclipse.debug.gdbjtag.openocd.feature:4.4.2.202010292017"/>
+		<item value="ilg.gnumcueclipse.managedbuild.cross.arm.feature:2.7.3.202010292017"/>
+		<item value="ilg.gnumcueclipse.managedbuild.cross.riscv.feature:2.9.4.202010292017"/>
+		<item value="ilg.gnumcueclipse.packs.feature:2.4.3.202010292017"/>
+		<item value="org.eclipse.cdt.debug.ui.memory:10.5.0.202110140133"/>
+		<item value="org.eclipse.cdt.gdb:10.5.0.202109270023"/>
+		<item value="org.eclipse.cdt.gnu.build:10.5.0.202110181930"/>
+		<item value="org.eclipse.cdt.gnu.debug:10.5.0.202109270023"/>
+		<item value="org.eclipse.cdt.gnu.dsf:10.5.0.202111041518"/>
+		<item value="org.eclipse.cdt.gnu.multicorevisualizer:10.5.0.202109270023"/>
+		<item value="org.eclipse.cdt.launch.serial.feature:10.5.0.202109270023"/>
+		<item value="org.eclipse.cdt.native:10.5.0.202112012329"/>
+		<item value="org.eclipse.cdt.platform:10.5.0.202112012329"/>
+		<item value="org.eclipse.cdt:10.5.0.202112012329"/>
+		<item value="org.eclipse.egit.gitflow.feature:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.egit:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.emf.common:2.24.0.v20210924-1718"/>
+		<item value="org.eclipse.emf.ecore:2.26.0.v20210924-1718"/>
+		<item value="org.eclipse.help:2.3.800.v20211124-1800"/>
+		<item value="org.eclipse.jgit.gpg.bc:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.jgit.http.apache:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.jgit.lfs:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.jgit.ssh.apache:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.jgit:6.0.0.202111291000-r"/>
+		<item value="org.eclipse.platform:4.22.0.v20211124-1800"/>
+		<item value="org.eclipse.rcp:4.22.0.v20211124-1800"/>
+		<item value="org.eclipse.tm.terminal.connector.ssh.feature:10.5.0.202109270023"/>
+		<item value="org.eclipse.tm.terminal.control.feature:10.5.0.202109270023"/>
+		<item value="org.eclipse.tm.terminal.feature:10.5.0.202109270023"/>
+		<item value="org.eclipse.tm.terminal.view.feature:10.5.0.202110140133"/>
+		<item value="org.robotframework.ide.eclipse.main.feature:0.9.5.202007240959"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item key="BUILD_ALL" value="true"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="BUILD_NOW" value="false"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.views.markers.FiltersConfigurationDialog">
+		<item key="SELECTED_FILTER_GROUP" value="No Duplicate path entries"/>
+		<list key="PREV_SELECTED_ELEMENTS">
+			<item value="No Duplicate path entries"/>
+		</list>
+	</section>
+</section>

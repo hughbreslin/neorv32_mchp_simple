@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+gdb.client.commands=set $target_riscv \= 1\r\nset mem inaccessible-by-default off\r\nset arch riscv\:rv32\r\nset remotetimeout 7
+gdb.client.doStart=true
+gdb.client.executable=${cross_prefix}gdb${cross_suffix}
+gdb.client.other=
+gdb.openocd.doDebugInRam=false
+gdb.openocd.doInitialReset=true
+gdb.openocd.doPreRunReset=false
+gdb.openocd.enableSemihosting=false
+gdb.openocd.init.other=
+gdb.openocd.initialReset.type=init
+gdb.openocd.preRun.other=
+gdb.openocd.preRunReset.type=halt
+gdb.server.doStart=false
+gdb.server.executable=${openocd_path}/${openocd_executable}
+gdb.server.other=--file board/microsemi-riscv.cfg

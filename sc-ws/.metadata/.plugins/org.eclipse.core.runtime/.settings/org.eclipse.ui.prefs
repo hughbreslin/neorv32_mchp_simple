@@ -1,0 +1,4 @@
+SHOW_MEMORY_MONITOR=false
+defaultPerspectiveId=org.eclipse.cdt.ui.CPerspective.Develop and debug
+eclipse.preferences.version=1
+showIntro=false
