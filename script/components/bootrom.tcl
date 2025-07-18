@@ -15,7 +15,7 @@ create_and_configure_core -core_vlnv {Actel:SystemBuilder:PF_SRAM_AHBL_AXI:1.2.1
 "CASCADE:1" \
 "ECC_OPTIONS:0" \
 "FABRIC_INTERFACE_TYPE:1" \
-"IMPORT_FILE:C:/work/BD/neo/hello_world/fin/neorv32_mchp_simple/sc-ws/neorv32-softconsole/RV32I/neorv32-softconsole.hex" \
+"IMPORT_FILE:../script/neorv32-bootloader.hex" \
 "INIT_RAM:T" \
 "LPM_HINT:0" \
 "PIPELINE_OPTIONS:1" \

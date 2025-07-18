@@ -79,56 +79,6 @@ proc create_project {} {
 	save_project 
 }
 
-# Generate a ram initialization file for Libero
-proc generate_ram_cfg {instance_name memory_file} {
-    # Define the target directory and file name
-    set target_dir "./neorv32_disco"
-    set file_name "RAM.cfg"
-    set full_path [file join $target_dir $file_name]
-
-    # Ensure the target directory exists
-    if {![file isdirectory $target_dir]} {
-        puts "Creating directory: $target_dir"
-        file mkdir $target_dir
-    }
-
-    # Open the file in append mode. If it doesn't exist, it will be created.
-    # 'a+' mode allows both reading and writing, and creates the file if it doesn't exist.
-    # We'll just use 'a' for append, as we only need to write.
-    set file_handle [open $full_path "a+"]
-
-    # Check if the file was opened successfully
-    if {[catch {fconfigure $file_handle -encoding utf-8} err]} {
-        puts "Error: Could not open or configure file $full_path: $err"
-        return
-    }
-
-    #puts "Appending configuration to $full_path..."
-
-    # Write the configuration block to the file
-    puts $file_handle "modified_client \\"
-    puts $file_handle "\t-logical_instance_name\t {$instance_name}\t \\"
-    puts $file_handle "\t-storage_type {SNVM}\t \\"
-    puts $file_handle "\t-content_type {MEMORY_FILE}\t \\"
-    puts $file_handle "\t-memory_file_format {Intel-Hex}\t \\"
-    puts $file_handle "\t-memory_file {$memory_file}"
-    puts $file_handle "" ; # Add an empty line for separation
-
-    # Close the file handle
-    close $file_handle
-    #puts "Configuration successfully appended."
-}
-
-# Run the design flow and add the NeoRV32 bootloader to the bootrom
-proc add_bootrom {} {
-	update_and_run_tool -name {PLACEROUTE} 
-	save_project 
-	update_and_run_tool -name {GENERATEPROGRAMMINGDATA} 
-	save_project 
-	generate_ram_cfg "bootrom_0" "../script/neorv32-bootloader.hex"
-	configure_ram -cfg_file {./neorv32_disco/RAM.cfg}
-}	
-
 # Set variables for any arguments passed
 if { $::argc > 0 } {
 	set i 1
@@ -150,4 +100,3 @@ if { $::argc > 0 } {
 
 check_path $tcl_platform(os)
 create_project
-add_bootrom
