@@ -83,35 +83,20 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 
 **_NOTE:_** default clock constraints for JTAG / system clocks are imported or derived.
 
-4. At this stage NeoRV32 can be configured as required by double clicking on the `neorv32_libero_ip_0` component.
-
-**_NOTE:_** Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file.
-
-5. If you are going to debug the CPU to download an application you can just generate a bitstream and program your Discovery Kit, if you would like to include an application in the bitstream continue with the steps below.
+**_NOTE:_** the bootrom component is automatically initialized with a copy of the NeoRV32 bootloader built for RV32I.
 
 **_NOTE:_** it is easier to view the SmartDesign if the "Auto Arrange Layout" option is run.
 
 ![A button](./images/auto_arrange_layout.png)
 
-6. Run the design flow to the "Generate FPGA Array Data", it is also recommended to run the "Verify Timing" stage of the design flow.
 
-7. Separately build your application image and export a `.hex` file. This is demonstrated in the [Building an Application in SoftConsole](#building-an-application-in-softconsole) section.
+4. At this stage NeoRV32 can be configured as required by double clicking on the `neorv32_libero_ip_0` component.
 
-8. Run the "Configure Design Initialization Data and Memories" tool in the Libero design flow.
+**_NOTE:_** Libero only supports integer or natural types in configurators, for this reason all boolean parameters are converted to ints in the wrapper file.
 
-![A tool](./images/cdidm.png)
+5. It is recommended to run the "Verify Timing" stage of the design flow.
 
-9. In the "Fabric RAMs" tab select the "Filter out Inferred RAMs" option.
-
-![A configurator](./images/ram_init_1.png)
-
-10. Double click on the "PF_SRAM_AHBL_AXI_C0_0".
-
-11. In the configurator use the "Content from file" option to point to your `.hex` file.
-
-![A configurator](./images/ram_init_2.png)
-
-12. Select "Run PROGRAM Action" from the design flow.
+6. Select "Run PROGRAM Action" from the design flow.
 
 ### Building an Application in SoftConsole
 
@@ -121,15 +106,37 @@ This repository includes a SoftConsole workspace with a pre-configured sample ap
 
 ![A launcher](./images/sc_launch.png)
 
-2. The application `main` is in the `neorv32/src/application/main.c` directory.
+2. This project links to all of the NeoRV32 demo projects available - they are available in `src/demos`
 
-3. This build is configured for RV32I as a build, this can be changed from the project properties, right click on the project folder and select "Properties".
+![SoftConsole projects](./images/sc-projects.png)
+
+3. By default the PWM example is selected as PWM is enabled in the demo design - you can build the project by using `CTRL + B`.
+
+4. This build is configured for RV32I as a build, this can be changed from the project properties, right click on the project folder and select "Properties".
 
 ![Project properties](./images/sc-properties.png)
 
-4. The project can be built using `CTRL + B`.
+5. The application will be built in `NeoRV32/`.
 
-5. Once built the `RV32I/neorv32-softconsole.hex` file can be used with Libero.
+6. Other demos can be selected by exlcuding the current demo from a build and including the desired demo:
+
+    - Right click on the current demo and open `Resource Configurations -> Exclude from Build`.
+
+    ![SoftConsole exclude resource](./images/sc-exclude-resource.png)
+
+    - Select the "NeoRV32" option.
+
+    ![SoftConsole exclude resource 1](./images/sc-exclude-resource-1.png)
+
+    - Right click on the desired demo and open `Resource Configurations -> Exclude from Build`.
+
+    ![SoftConsole include resource](./images/sc-include-resource.png)
+
+    - Deselect the "NeoRV32" option.
+
+    ![SoftConsole include resource 1](./images/sc-include-resource-1.png)
+
+    - Build the project with `CTRL + B`.
 
 #### Debugging an Application
 
@@ -145,7 +152,11 @@ To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled 
 
 ![Debug config](./images/sc-debug-config-1.png)
 
-4. In the "Debugger" tab update the "Executable path" to point to the OpenOCD that was downloaded previously and update the "Config options" to
+4. If the "Project" entry is unset you can select the project by using the "Broswe" option
+
+![Debug Config Project](./images/sc-debug-config-3.png)
+
+4. In the "Debugger" tab ensure "Start OpenOCD locally" is selected and update the "Executable path" to point to the OpenOCD that was downloaded previously and update the "Config options" to
 
     --file ${workspace_loc}/microchip_riscv.cfg
 

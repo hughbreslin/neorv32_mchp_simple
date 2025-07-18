@@ -1,0 +1,8 @@
+ConfigSelector.shell.h=550
+ConfigSelector.shell.w=600
+ModeSelector.shell.h=68
+ModeSelector.shell.w=150
+TargetSelector.shell.h=70
+TargetSelector.shell.w=200
+eclipse.preferences.version=1
+enableBuildButton=false
