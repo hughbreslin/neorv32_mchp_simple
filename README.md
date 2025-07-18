@@ -68,6 +68,7 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 
     ```bash
     git clone https://github.com/hughbreslin/neorv32_mchp_simple.git
+    cd ./neorv32_mchp_simple
     git submodule init
     git submodule update
     ```
