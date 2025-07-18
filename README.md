@@ -98,6 +98,14 @@ To generate the FPGA design ensure you have Libero installed with a valid licens
 
 6. Select "Run PROGRAM Action" from the design flow.
 
+### Integrating NeoRV32 into a Custom Design
+
+The NeoRV32 source repository contains an [RTL integration script](https://github.com/stnolting/neorv32/blob/main/rtl/system_integration/neorv32_libero_ip.tcl). To use NeoRV32 in your own design:
+
+1. Clone the source repository
+2. In Libero run the integration Tcl script
+3. The NeoRV32 library should now be availble in your Design Hierarchy
+
 ### Building an Application in SoftConsole
 
 This repository includes a SoftConsole workspace with a pre-configured sample application.
@@ -178,8 +186,9 @@ To debug a NeoRV32 core a newer OpenOCD version to the standard version bundled 
 
 ## Benchmarks
 
-The following table contains benchmarks of the NeoRV32 in different configurations using this design:
+The following table contains benchmarks of the NeoRV32 in different configurations using this design, resource values are for the core only unless stated otherwise:
 
 | RV Extensions | Peripherals                | CLK    | 4LUT | DFF  | uSRAM | LSRAM | MACC | Logic Elements<br>(4LUT + DFF) | Coremark |
 |---------------|----------------------------|--------|------|------|-------|-------|------|-----------------------------|----------|
+| RV32IC        | - Debug<br>- UART x1<br>- PWM x7 | 200MHz | 3340 | 2017 | 10    | 0     | 0    | 5357                        | TBD      |
 | RV32IC        | - Debug<br>- UART x1<br>- PWM x7 | 200MHz | 3340 | 2017 | 10    | 0     | 0    | 5357                        | TBD      |
